@@ -15,11 +15,17 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-		<!-- Rabbit MQ java客户端-->
+		<!-- Rabbit MQ java客户端 -->
 		<dependency>
 			<groupId>com.rabbitmq</groupId>
 			<artifactId>amqp-client</artifactId>
 			<version>${amqp.client.version}</version>
+		</dependency>
+		<!-- spring-rabbitMQ -->
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>1.6.6.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
