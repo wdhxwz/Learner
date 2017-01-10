@@ -3,18 +3,34 @@
  */
 package com.wangdh.learner.base.json;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * @author wdhcxx
  *
  */
 public class Country {
-	 // 注意：被序列化的bean的private属性字段需要创建getter方法或者属性字段应该为public  
+
+	public static <E> E toJavaBean(String jsonString) throws JsonParseException, JsonMappingException, IOException{
+		TypeReference<E> typeReference = new TypeReference<E>() {
+		};
+		
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.readValue(jsonString, typeReference);
+		
+	}
+	
+	// 注意：被序列化的bean的private属性字段需要创建getter方法或者属性字段应该为public  
     private String country_id;  
     private Date birthDate;  
     private List<String> nation = new ArrayList<String>();  
