@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author wdhcxx
- *
+ * http://blog.csdn.net/xiong9999/article/details/53170331
  */
 public class JsonDeserializeToJavaBean {
 

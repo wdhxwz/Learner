@@ -11,6 +11,10 @@
 		<module>wangdh.learner.rabbitmq</module>
     <module>wangdh.learner.base</module>
     <module>wangdh.learner.mybatis</module>
+    <module>wangdh.learner.logger</module>
+    <module>wangdh.learner.aop</module>
+    <module>wangdh.learner.springmvc</module>
+    <module>wangdh.learner.redis</module>
   </modules>
 	<properties>
 		<!-- rabbit mq 客户端版本号 -->
