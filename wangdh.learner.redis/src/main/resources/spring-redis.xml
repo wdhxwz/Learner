@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:cache="http://www.springframework.org/schema/cache"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-4.1.xsd
         http://www.springframework.org/schema/mvc 
-        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<context:component-scan base-package="com.wangdh.learner.springCache" />
+	<context:annotation-config />
+
+	<!-- 开启缓存注解 -->
+	<cache:annotation-driven />
 
 	<!-- 读取properties文件 -->
 	<bean id="propertyConfigurerForProject1"
@@ -40,7 +48,8 @@
 	<bean id="jedisShardInfo" class="redis.clients.jedis.JedisShardInfo">
 		<constructor-arg index="0" value="${redis.host}" />
 		<constructor-arg index="1" value="${redis.port}" type="int" />
-		<constructor-arg index="2" value="${redis.timeout}" type="int" />
+		<constructor-arg index="2" value="${redis.timeout}"
+			type="int" />
 	</bean>
 
 	<!--jedis连接池 -->
@@ -59,12 +68,12 @@
 		<property name="shardInfo" ref="jedisShardInfo" />
 		<property name="poolConfig" ref="jedisPoolConfig" />
 	</bean>
-	
+
 	<!-- 缓存序列化方式 -->
 	<!--对key的默认序列化器。默认值是StringSerializer -->
 	<bean id="keySerializer"
 		class="org.springframework.data.redis.serializer.StringRedisSerializer" />
-	
+
 	<!--是对value的默认序列化器，默认值是取自DefaultSerializer的JdkSerializationRedisSerializer。 -->
 	<bean id="valueSerializer"
 		class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer" />
@@ -77,4 +86,10 @@
 		<property name="hashKeySerializer" ref="keySerializer" />
 		<property name="hashValueSerializer" ref="valueSerializer" />
 	</bean>
+	<!-- 缓存 -->
+	<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+		<constructor-arg index="0" ref="redisTemplate" />
+		<property name="defaultExpiration" value="${redis.expiration}" />
+	</bean>
+
 </beans>
