@@ -1,5 +1,6 @@
 package com.wangdh.learner.mybatis.service;
 
+import com.wangdh.learner.mybatis.Utils.GUIDUtils;
 import com.wangdh.learner.mybatis.Utils.MybatisUtils;
 import com.wangdh.learner.mybatis.dto.StudentDto;
 import com.wangdh.learner.mybatis.entity.StudentEntity;
@@ -25,5 +26,17 @@ public class StudentService {
 		}
 
 		return studentDto;
+	}
+
+	public void addStudent(StudentDto studentDto) {
+		StudentEntity studentEntity = new StudentEntity();
+		if (studentDto != null) {
+			studentEntity.setBirthday(studentDto.getBirthday());
+			studentEntity.setEmail(studentDto.getEmail());
+			studentEntity.setName(studentDto.getName());
+			studentEntity.setId(GUIDUtils.guid(""));
+			studentMapper.insertStudent(studentEntity);
+			MybatisUtils.openSession().commit();
+		}
 	}
 }
