@@ -23,5 +23,11 @@ public class SpringCacheTest extends BaseTest {
 		UserEntity user1 = userService.getUser(1 + "");
 		UserEntity user2 = userService.getUser(2 + "");
 		UserEntity user3 = userService.getUser(1 + "");
+
+		System.out.println(user1);
+		System.out.println(user2);
+		System.out.println(user3);
 	}
+
+	
 }

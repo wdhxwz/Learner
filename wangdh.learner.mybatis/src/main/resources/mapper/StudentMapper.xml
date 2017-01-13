@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wangdh.learner.mybatis.mapper.StudentMapper">
+	
+	<select id="getStudentById" parameterType="String" resultType="com.wangdh.learner.mybatis.entity.StudentEntity">
+		SELECT [Id],[name],[email],[birthday]
+  		FROM [MybatisDB].[dbo].[tb_student]
+		WHERE Id=#{id}
+	</select>
+	
+	<insert id="insertStudent" parameterType="com.wangdh.learner.mybatis.entity.StudentEntity">
+		INSERT INTO [dbo].[tb_student]
+           ([Id],[name],[email],[birthday])
+     	VALUES
+           (#{id},#{name},#{email},#{birthday})
+	</insert>
+</mapper>
