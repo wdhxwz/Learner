@@ -36,7 +36,7 @@ public class StudentService {
 			studentEntity.setName(studentDto.getName());
 			studentEntity.setId(GUIDUtils.guid(""));
 			studentMapper.insertStudent(studentEntity);
-			MybatisUtils.openSession().commit();
+			MybatisUtils.commit();
 		}
 	}
 }
