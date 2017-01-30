@@ -11,7 +11,7 @@ public class StudentService {
 	private StudentMapper studentMapper;
 
 	public StudentService() {
-		studentMapper = MybatisUtils.openSession().getMapper(StudentMapper.class);
+		studentMapper = MybatisUtils.openSession(true).getMapper(StudentMapper.class);
 	}
 
 	public StudentDto getStudent(String id) {
@@ -36,7 +36,6 @@ public class StudentService {
 			studentEntity.setName(studentDto.getName());
 			studentEntity.setId(GUIDUtils.guid(""));
 			studentMapper.insertStudent(studentEntity);
-			MybatisUtils.commit();
 		}
 	}
 }

@@ -4,7 +4,15 @@
 	    "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 加载外部配置文件 -->
-	<properties resource="jdbc.properties" />
+	<properties resource="jdbc.properties">
+		<property name="jdbc.driverClassName" value="123123" />
+	</properties>
+	<!-- 设置 -->
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="localCacheScope" value="STATEMENT" />
+	</settings>
+
 	<!-- 配置数据源 -->
 	<environments default="development">
 		<environment id="development">
@@ -18,6 +26,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="mapper/StudentMapper.xml"/>
+		<mapper resource="mapper/StudentMapper.xml" />
 	</mappers>
 </configuration>
