@@ -52,7 +52,7 @@ public class JavaBeanSerializeToJson {
 		response.setSessionId(UUID.randomUUID().toString());
 
 		String jsonString = mapper.writeValueAsString(response);
-		String provinceJson = mapper.writeValueAsString(province);
+		// String provinceJson = mapper.writeValueAsString(province);
 		System.out.println(jsonString);
 
 		// 序列化泛型
