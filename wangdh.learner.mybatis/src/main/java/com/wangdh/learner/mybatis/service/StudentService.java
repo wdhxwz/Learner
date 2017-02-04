@@ -45,7 +45,6 @@ public class StudentService {
 			studentEntity.setName(studentDto.getName());
 			studentEntity.setId(GUIDUtils.guid(""));
 			studentMapper.insertStudent(studentEntity);
-			sqlSession.commit();
 		}
 	}
 }
