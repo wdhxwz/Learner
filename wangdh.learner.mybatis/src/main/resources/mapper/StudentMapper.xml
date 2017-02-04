@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wangdh.learner.mybatis.mapper.StudentMapper">
 	
-	<select id="getStudentById" parameterType="Map" resultType="student222">
+	<select id="getStudentById" parameterType="Map" resultType="com.wangdh.learner.mybatis.entity.StudentEntity">
 		SELECT [Id],[name],[email],[birthday]
   		FROM [MybatisDB].[dbo].[tb_student]
-		WHERE Id=${id2}
+		WHERE Id=#{id}
 	</select>
 	
 	<insert id="insertStudent" parameterType="com.wangdh.learner.mybatis.entity.StudentEntity">

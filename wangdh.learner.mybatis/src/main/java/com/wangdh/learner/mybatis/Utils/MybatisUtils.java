@@ -29,7 +29,7 @@ public class MybatisUtils {
 		SqlSessionFactory _sqlSessionFactory = null;
 		InputStream inputStream;
 		if (configFile == null || configFile.length() == 0) {
-			configFile = "mybatisConfig.xml";
+			configFile = "mybatis-Config.xml";
 		}
 		try {
 			inputStream = Resources.getResourceAsStream(configFile);

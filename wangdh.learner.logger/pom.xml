@@ -14,8 +14,14 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<log4j.version>2.7</log4j.version>
+		<sqlServer.version>4.0.2206.100</sqlServer.version>
 	</properties>
 	<dependencies>
-		
+		<!-- SqlServer 驱动 -->
+		<dependency>
+			<groupId>com.hynnet</groupId>
+			<artifactId>sqljdbc4-chs</artifactId>
+			<version>${sqlServer.version}</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -31,9 +31,7 @@ public class StudentServiceTest {
 
 	@Test
 	public void getStudent() {
-		StudentDto studentDto = studentService.getStudent("18cf612805f148cca5f98f327ccea6ed");
-		System.out.println(studentDto.getName());
-		studentDto = studentService.getStudent("18cf612805f148cca5f98f327ccea6ed");
+		StudentDto studentDto = studentService.getStudent("22ca34cd09d240de9d8ab8cbaa049c69");
 		System.out.println(studentDto.getName());
 		Assert.assertNotNull(studentDto);
 	}

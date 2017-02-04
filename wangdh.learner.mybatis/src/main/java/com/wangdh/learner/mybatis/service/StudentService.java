@@ -23,7 +23,7 @@ public class StudentService {
 
 	public StudentDto getStudent(String id) {
 		Map<String, String> map = new HashMap<>();
-		map.put("id2", id);
+		map.put("id", id);
 		StudentEntity studentEntity = studentMapper.getStudentById(map);
 
 		StudentDto studentDto = null;

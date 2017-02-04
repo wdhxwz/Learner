@@ -4,22 +4,16 @@
 	    "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 加载外部配置文件 -->
-<<<<<<< HEAD:wangdh.learner.mybatis/src/main/resources/mybatisConfig.xml
 	<properties resource="jdbc.properties" />
-	<typeAliases>
-		<package name="com.wangdh.learner.mybatis.entity"/>
-	</typeAliases>
-=======
-	<properties resource="jdbc.properties">
-		<property name="jdbc.driverClassName" value="123123" />
-	</properties>
 	<!-- 设置 -->
 	<settings>
 		<setting name="cacheEnabled" value="false" />
 		<setting name="localCacheScope" value="STATEMENT" />
 	</settings>
+	<typeAliases>
+		<package name="com.wangdh.learner.mybatis.entity" />
+	</typeAliases>
 
->>>>>>> 34198e5b56cb464d70540ba1430ffcfb912247ee:wangdh.learner.mybatis/src/main/resources/mybatis-Config.xml
 	<!-- 配置数据源 -->
 	<environments default="development">
 		<environment id="development">
@@ -32,7 +26,7 @@
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<mappers>
 		<mapper resource="mapper/StudentMapper.xml" />
 	</mappers>

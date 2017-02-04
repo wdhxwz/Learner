@@ -2,9 +2,6 @@ package com.wangdh.learner.mybatis.entity;
 
 import java.util.Date;
 
-import org.apache.ibatis.type.Alias;
-
-@Alias("student222")
 public class StudentEntity {
 
 	private String id;
