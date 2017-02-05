@@ -22,5 +22,6 @@ public class EnumUtils {
 		}
 
 		throw new IllegalArgumentException(enumClass + " not exists enum value:" + value);
+	
 	}
 }

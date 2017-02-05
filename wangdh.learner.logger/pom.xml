@@ -13,8 +13,8 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<log4j.version>2.7</log4j.version>
 		<sqlServer.version>4.0.2206.100</sqlServer.version>
+		<common.logging.version>1.2</common.logging.version>
 	</properties>
 	<dependencies>
 		<!-- SqlServer 驱动 -->
@@ -22,6 +22,12 @@
 			<groupId>com.hynnet</groupId>
 			<artifactId>sqljdbc4-chs</artifactId>
 			<version>${sqlServer.version}</version>
+		</dependency>
+		<!-- Common Logging -->
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>${common.logging.version}</version>
 		</dependency>
 	</dependencies>
 </project>
