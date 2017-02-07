@@ -15,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sqlServer.version>4.0.2206.100</sqlServer.version>
 		<common.logging.version>1.2</common.logging.version>
+		<slf4j.version>1.7.21</slf4j.version>
 	</properties>
 	<dependencies>
 		<!-- SqlServer 驱动 -->
@@ -25,9 +26,21 @@
 		</dependency>
 		<!-- Common Logging -->
 		<dependency>
-		    <groupId>commons-logging</groupId>
-		    <artifactId>commons-logging</artifactId>
-		    <version>${common.logging.version}</version>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${common.logging.version}</version>
+		</dependency>
+		<!-- slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- slf4j 与log4j适配 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.21</version>
 		</dependency>
 	</dependencies>
 </project>
