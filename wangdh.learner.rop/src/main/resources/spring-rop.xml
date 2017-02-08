@@ -9,14 +9,29 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
+    <!--① 扫描Spring Bean-->
+    <context:component-scan base-package="com.rop.sample"/>
 
-	<context:component-scan base-package="com.wangdh.learner.rop" />
-
-	<rop:annotation-driven />
-
-
+    <!-- 启动Rop框架 -->
+    <rop:annotation-driven
+        id="router"
+        session-manager="sampleSessionManager"
+        app-secret-manager="appSecretManager"
+        service-access-controller="serviceAccessController"
+        ext-error-base-names="i18n/rop/sampleRopError,i18n/rop/sampleRopError1"
+        service-timeout-seconds="10"
+        invoke-times-controller="invokeTimesController"
+        upload-file-max-size="10"
+        upload-file-types="png,gif"
+        core-pool-size="200"
+        max-pool-size="500"
+        queue-capacity="50"
+        keep-alive-seconds="300"
+        sign-enable="true"/>
 
 	<bean id="appSecretManager" class="com.wangdh.learner.rop.manager.SampleAppSecretManager" />
 	<bean id="serviceAccessController"
 		class="com.wangdh.learner.rop.manager.SampleServiceAccessController" />
+    <bean id="sampleSessionManager" class="com.wangdh.learner.rop.manager.SampleSessionManager" />
+    <bean id="invokeTimesController" class="com.wangdh.learner.rop.manager.SampleInvokeTimesController"/>
 </beans>
