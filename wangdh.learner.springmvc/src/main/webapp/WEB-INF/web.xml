@@ -4,11 +4,31 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee      
     http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd">
 	<display-name>Spring MVC</display-name>
+	
 	<!-- 配置Spring配置文件路径 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:spring-root.xml</param-value>
 	</context-param>
+	
+	<!-- spring mvc 分发器 -->
+	<servlet>
+		<servlet-name>spring-mvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<!-- 配置文件，默認是：/WEB-INF/xxx-servlet.xml -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:spring-mvc.xml</param-value>
+		</init-param>
+	</servlet>
+
+	<!-- Spring MVC转发规则 -->
+	<servlet-mapping>
+		<servlet-name>spring-mvc</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 
 	<!-- 编码过滤器 -->
 	<filter>
@@ -29,25 +49,6 @@
 		<filter-name>Encoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
-	<!-- spring mvc 分发器 -->
-	<servlet>
-		<servlet-name>spring-mvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet
-		</servlet-class>
-		<load-on-startup>1</load-on-startup>
-		<!-- 配置文件，默認是：/WEB-INF/xxx-servlet.xml -->
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath*:spring-mvc.xml</param-value>
-		</init-param>
-	</servlet>
-
-	<!-- Spring MVC转发规则 -->
-	<servlet-mapping>
-		<servlet-name>spring-mvc</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
 
 	<session-config>
 		<session-timeout>120</session-timeout>
