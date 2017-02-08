@@ -19,6 +19,7 @@ public class CountingConsoleAppender extends AppenderSkeleton {
 	/**
 	 * 关掉
 	 */
+	@Override
 	public void close() {
 		if (this.closed) {
 			return;
@@ -30,6 +31,7 @@ public class CountingConsoleAppender extends AppenderSkeleton {
 	/**
 	 * 需要使用布局
 	 */
+	@Override
 	public boolean requiresLayout() {
 
 		return true;
