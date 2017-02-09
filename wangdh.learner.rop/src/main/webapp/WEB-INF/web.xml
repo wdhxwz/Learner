@@ -21,7 +21,7 @@
 	<servlet>
 		<servlet-name>rop</servlet-name>
 		<servlet-class>com.rop.RopServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>rop</servlet-name>
