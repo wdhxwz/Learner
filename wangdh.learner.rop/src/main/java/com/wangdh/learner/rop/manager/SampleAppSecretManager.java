@@ -17,7 +17,6 @@ public class SampleAppSecretManager implements AppSecretManager {
 
 	@Override
 	public String getSecret(String appKey) {
-		System.out.println("appKey=" + appKey + ",secret=" + appKeySecretMap.get(appKey));
 		return appKeySecretMap.get(appKey);
 	}
 

@@ -11,7 +11,7 @@ public class LogonRequest extends AbstractRopRequest {
 	@Pattern(regexp = "\\w{4,30}")
 	private String userName;
 
-	@IgnoreSign
+	//@IgnoreSign
 	@Pattern(regexp = "\\w{6,30}")
 	private String password;
 	

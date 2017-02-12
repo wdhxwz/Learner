@@ -1,7 +1,8 @@
 1、签名一直验证不通过
+	请求实体有属性标注了@IgnoreSign注解，调用RopUtils.sign(Map<String, String> paramValues, List<String> ignoreParamNames,String secret)需要将忽略加密的参数传进去
 2、返回格式如何改为json
-	format=json
-
+	设置请求参数的format=json
+3、当方法需要在会话下调用时，需要传递参数sessionId，如注销登陆
 
 
 

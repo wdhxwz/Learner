@@ -1,35 +1,21 @@
 package com.wangdh.learner.rop.test;
 
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
+import com.wangdh.learner.rop.client.UserServiceClient;
 
-import com.rop.utils.RopUtils;
+public class UserServiceTest1 {
 
-// import com.rop.utils.RopUtils;
-
-public class UserServiceTest1 {    
-
-	private static final String SERVER_URL = "http://localhost:8082/wangdh.learner.rop/router";
-	private static final String APP_KEY = "00001";
-	private static final String APP_SECRET = "abcdeabcdeabcdeabcdeabcde";
+	private static final String SERVER_URL = "http://localhost:8080/wangdh.learner.rop/router";
+//	private static final String APP_KEY = "00001";
+//	private static final String APP_SECRET = "abcdeabcdeabcdeabcdeabcde";
+	private static final String APP_KEY = "00003";
+	private static final String APP_SECRET = "abcdeabcdeabcdeabcdeaaaaa";
 
 	public static void main(String[] args) {
-		RestTemplate restTemplate = new RestTemplate();
-		MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>();
-		form.add("method", "user.getSession");
-		form.add("appKey", APP_KEY);
-		form.add("appSecret", APP_SECRET);
-		form.add("v", "1.0");
-		form.add("format", "json");
-		form.add("userName", "tomson");
-		form.add("password", "123456");
-
-		// 对请求参数列表进行签名
-		String sign = RopUtils.sign(form.toSingleValueMap(), APP_SECRET);
-		form.add("sign", sign);
-		String response = restTemplate.postForObject(SERVER_URL, form, String.class);
-
-		System.out.println(response);
+		UserServiceClient userServiceClient = new UserServiceClient(APP_KEY, APP_SECRET, SERVER_URL);
+		System.out.println("【user.getSession】" + userServiceClient.getSession("1.0"));
+		System.out.println("【user.login】" + userServiceClient.login("wangdh", "qwertyuiop", ""));
+		System.out.println("【user.getSession】" + userServiceClient.getSession("1.0"));
+		System.out.println("【user.logout】" + userServiceClient.logout(""));
+		System.out.println("【user.getSession】" + userServiceClient.getSession("1.0"));
 	}
 }

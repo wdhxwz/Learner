@@ -13,9 +13,9 @@ public class SampleServiceAccessController implements ServiceAccessController {
 	private static final Map<String, List<String>> aclMap = new HashMap<String, List<String>>();
 	static {
 		ArrayList<String> serviceMethods = new ArrayList<String>();
-		serviceMethods.add("user.logon");
+		serviceMethods.add("user.login");
 		serviceMethods.add("user.logout");
-		serviceMethods.add("user.getSession");
+		// serviceMethods.add("user.getSession");
 		aclMap.put("00003", serviceMethods);
 	}
 

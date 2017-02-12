@@ -12,11 +12,12 @@
 	<context:component-scan base-package="com.wangdh.learner.rop.sample" />
 
 	<!-- 启动Rop框架 -->
-	<rop:annotation-driven sign-enable="false" 
-
-        app-secret-manager="appSecretManager"
-        service-access-controller="serviceAccessController"/>
-        		<!-- session-manager="sampleSessionManager" -->
+	<rop:annotation-driven sign-enable="true" 
+		app-secret-manager="appSecretManager"
+        service-access-controller="serviceAccessController"
+        session-manager="sampleSessionManager"/>
+        
+       <!--   -->
 
 	<bean id="appSecretManager" class="com.wangdh.learner.rop.manager.SampleAppSecretManager" />
 	<bean id="serviceAccessController"
