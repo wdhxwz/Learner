@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.wangdh.learner</groupId>
 	<artifactId>wangdh.learner</artifactId>
@@ -15,8 +16,11 @@
 		<module>wangdh.learner.aop</module>
 		<module>wangdh.learner.springmvc</module>
 		<module>wangdh.learner.redis</module>
-    <module>wangdh.learner.rop</module>
-  </modules>
+		<module>wangdh.learner.rop</module>
+		<module>wangdh.learner.dubbo.api</module>
+		<module>wangdh.learner.dubbo.provider</module>
+		<module>wangdh.learner.dubbo.consumer</module>
+	</modules>
 	<properties>
 		<!-- rabbit mq 客户端版本号 -->
 		<amqp.client.version>4.0.0</amqp.client.version>
@@ -35,9 +39,9 @@
 		</dependency>
 		<!-- 添加log4j -->
 		<dependency>
-		    <groupId>log4j</groupId>
-		    <artifactId>log4j</artifactId>
-		    <version>${log4j.version}</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 	</dependencies>
 </project>
