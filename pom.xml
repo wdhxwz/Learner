@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.wangdh.learner</groupId>
 	<artifactId>wangdh.learner</artifactId>
@@ -20,7 +19,8 @@
 		<module>wangdh.learner.dubbo.api</module>
 		<module>wangdh.learner.dubbo.provider</module>
 		<module>wangdh.learner.dubbo.consumer</module>
-	</modules>
+    <module>wangdh.learner.javaweb</module>
+  </modules>
 	<properties>
 		<!-- rabbit mq 客户端版本号 -->
 		<amqp.client.version>4.0.0</amqp.client.version>

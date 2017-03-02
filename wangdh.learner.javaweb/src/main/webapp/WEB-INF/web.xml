@@ -1,0 +1,20 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>wangdh.learner.javaweb.servlet.TestServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<!-- Spring MVC转发规则 -->
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/aaa</url-pattern>
+		<url-pattern>/bbb</url-pattern>
+	</servlet-mapping> 
+</web-app>
