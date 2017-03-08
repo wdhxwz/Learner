@@ -1,10 +1,7 @@
 package com.wangdh.learner.springmvc.controller;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,21 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.wangdh.learner.springmvc.exception.UserNotFoundException;
 import com.wangdh.learner.springmvc.model.User;
 
 @Controller
 @RequestMapping("/home")
 public class HomeController implements EnvironmentAware {
-
-	private Map<String, User> users = new HashMap<>();
-
-	@PostConstruct
-	public void setUp() {
-		System.out.println("执行PostConstruct");
-		users.put("wangdh", new User());
-		users.put("cxx", new User());
-	}
 
 	public HomeController() {
 		System.out.println("执行构造函数");
@@ -38,16 +25,10 @@ public class HomeController implements EnvironmentAware {
 
 	@RequestMapping("/api/{name}")
 	public String index(HttpServletRequest request, @PathVariable("name") String name, @ModelAttribute User user)
-			throws UserNotFoundException {
-
+			{
 		System.out.println(name);
 		System.out.println(request.getRequestURL().toString());
-
 		System.out.println(request.getParameter("name"));
-
-		if (1 == 1) {
-			throw new UserNotFoundException("xaa");
-		}
 
 		return "home/index";
 	}
