@@ -21,10 +21,11 @@ public class TestFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
 			throws IOException, ServletException {
+		arg0.setAttribute("content", "text/html;charset=UTF-8");
+		System.out.println(arg0.getContentType());
+		
 		arg2.doFilter(arg0, arg1);
-		arg1.setContentType("text/json");
-		System.out.println(((HttpServletResponse)arg1).getContentType());
-		arg1.getWriter().write("hahaha");
+		System.out.println(((HttpServletResponse) arg1).getContentType());
 	}
 
 	@Override
