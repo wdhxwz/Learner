@@ -13,7 +13,8 @@ public class AopTestBean {
 		System.out.println("Hello " + name);
 	}
 
-	public void aaa() {
+	public void aaa() throws Exception {
 		System.out.println("aaa");
+		throw new Exception("123");
 	}
 }

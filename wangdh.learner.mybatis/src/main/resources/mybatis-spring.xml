@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context
+   	 http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/mvc
+     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan base-package="com.wangdh.learner.mybatis.service" />
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<!-- 配置连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.userName}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- 配置sqlSession工厂 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 指定数据源 -->
+		<property name="dataSource" ref="dataSource" />
+
+		<!-- 指定mapper.xml文件的路径 -->
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:mapper/*Mapper.xml</value>
+			</array>
+		</property>
+
+		<!-- 为实体生成别名 -->
+		<property name="typeAliasesPackage" value="com.wangdh.learner.mybatis.entity" />
+
+		<!-- 加载分页插件 -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageHelper">
+					<property name="properties">
+						<value>
+							dialect=SqlServer
+							reasonable=true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+	</bean>
+
+	<!-- mapper接口扫描 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 指定要扫描的包 -->
+		<property name="basePackage" value="com.wangdh.learner.mybatis.mapper" />
+
+		<!-- 指定只注册继承自指定接口的mapper接口 -->
+		<!-- <property name="markerInterface" value="com.tiantian.mybatis.mapper.SuperMapper" 
+			/> -->
+	</bean>
+</beans>

@@ -31,6 +31,7 @@ public class DefaultServiceRouter implements IServiceRouter {
 			// OASConfig类加载OAS.properties的配置
 			// requestFrom:
 			IRequestFrom requestFrom = null;
+			
 			if (requestFrom == null) {
 				requestFrom = new DefaultRequestFrom();
 			}

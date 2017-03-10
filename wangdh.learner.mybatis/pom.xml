@@ -14,8 +14,12 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sqlServer.version>4.0.2206.100</sqlServer.version>
-		<mybatis.version>3.3.0</mybatis.version>
+		<mybatis.version>3.4.2</mybatis.version>
 		<mybatis.spring.version>1.3.1</mybatis.spring.version>
+		<mybatis.pagehelper.version>5.0.0</mybatis.pagehelper.version>
+		<mybatis.mapper.version>3.4.0</mybatis.mapper.version>
+		<mybatis.generator.version>1.3.5</mybatis.generator.version>
+		<druid.version>1.0.28</druid.version>
 	</properties>
 	<dependencies>
 		<!-- SqlServer 驱动 -->
@@ -30,11 +34,37 @@
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
 		</dependency>
+		<!-- mybatis代码生成器 -->
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>${mybatis.generator.version}</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+		<!-- mybatis通用mapper插件 -->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>${mybatis.mapper.version}</version>
+		</dependency>
+		<!-- mybatis 分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>${mybatis.pagehelper.version}</version>
+		</dependency>
 		<!-- mybatis-spring -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis.spring.version}</version>
+		</dependency>
+		<!-- 数据库连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -8,16 +8,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  */
 public class App {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Exception {
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:*application.xml");
 
 		AopTestBean aopTestBean = context.getBean(AopTestBean.class);
 		aopTestBean.sayHello();
 		aopTestBean.sayHello("wangdh");
-		
+
 		AopTestBean aopTestBean2 = context.getBean(AopTestBean.class);
-		
-		aopTestBean2.aaa();
+		try {
+			aopTestBean2.aaa();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 
 		System.exit(1);
 	}

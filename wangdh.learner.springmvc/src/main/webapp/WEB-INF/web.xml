@@ -4,13 +4,19 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee      
     http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd">
 	<display-name>Spring MVC</display-name>
-	
+
 	<!-- 配置Spring配置文件路径 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:spring-root.xml</param-value>
 	</context-param>
-	
+
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
 	<!-- spring mvc 分发器 -->
 	<servlet>
 		<servlet-name>spring-mvc</servlet-name>
@@ -49,23 +55,36 @@
 		<filter-name>Encoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	
-	
-	
-	<filter>
-		<filter-name>test</filter-name>
-		<filter-class>
-			com.wangdh.learner.springmvc.filter.TestFilter
-		</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>test</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	
-	
-	
+
+	<!-- <filter> <filter-name>test</filter-name> <filter-class> com.wangdh.learner.springmvc.filter.TestFilter 
+		</filter-class> </filter> <filter-mapping> <filter-name>test</filter-name> 
+		<url-pattern>/*</url-pattern> </filter-mapping> -->
+
+	<!-- 配置druid监控 -->
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet
+		</servlet-class>
+		<init-param>
+			<!-- 允许清空统计数据 -->
+			<param-name>resetEnable</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<!-- 用户名 -->
+			<param-name>loginUsername</param-name>
+			<param-value>druid</param-value>
+		</init-param>
+		<init-param>
+			<!-- 密码 -->
+			<param-name>loginPassword</param-name>
+			<param-value>druid</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
 
 	<session-config>
 		<session-timeout>120</session-timeout>
