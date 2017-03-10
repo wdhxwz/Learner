@@ -25,7 +25,7 @@ public class StudentServiceTest {
 			studentDto.setEmail(i + "123@qq.com");
 			studentDto.setName("张三,index=" + i);
 
-			// studentService.addStudent(studentDto);
+			studentService.addStudent(studentDto);
 		}
 	}
 
