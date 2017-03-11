@@ -1,11 +1,15 @@
 package com.wangdh.learner.mybatis.Utils;
 
 import java.io.InputStream;
+import java.util.Properties;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 public class MybatisUtils {
 	private static SqlSessionFactory sqlSessionFactory;
@@ -75,5 +79,13 @@ public class MybatisUtils {
 	 */
 	public static SqlSession openSession(boolean autoCommit) {
 		return getSqlSessionFactory(null).openSession(autoCommit);
+	}
+	
+	public static DruidDataSource getDataSource() throws Exception{
+		Properties properties = new Properties();
+		properties.load(Resources.getResourceAsStream("jdbc.properties"));
+		DruidDataSource dataSource = (DruidDataSource)DruidDataSourceFactory.createDataSource(properties);		
+		
+		return dataSource;
 	}
 }
