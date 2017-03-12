@@ -80,12 +80,4 @@ public class MybatisUtils {
 	public static SqlSession openSession(boolean autoCommit) {
 		return getSqlSessionFactory(null).openSession(autoCommit);
 	}
-	
-	public static DruidDataSource getDataSource() throws Exception{
-		Properties properties = new Properties();
-		properties.load(Resources.getResourceAsStream("jdbc.properties"));
-		DruidDataSource dataSource = (DruidDataSource)DruidDataSourceFactory.createDataSource(properties);		
-		
-		return dataSource;
-	}
 }
