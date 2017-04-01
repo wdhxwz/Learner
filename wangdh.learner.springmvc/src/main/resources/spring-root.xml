@@ -22,6 +22,8 @@
 		<property name="logSlowSql" value="true" />
 		<property name="mergeSql" value="true" />
 	</bean>
+	<bean id="springUtil" class="com.wangdh.learner.springmvc.base.SpringUtil" />
+	<bean id="testService" class="com.wangdh.learner.springmvc.service.TestService" scope="request"></bean>
 
 	<!-- 配置连接池 -->
 	<bean name="wangdh" id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"

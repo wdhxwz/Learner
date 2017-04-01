@@ -11,10 +11,14 @@
 		<param-value>classpath*:spring-root.xml</param-value>
 	</context-param>
 	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
+
 
 	<!-- spring mvc 分发器 -->
 	<servlet>
@@ -116,6 +120,6 @@
 
 	<!-- 首页列表 -->
 	<welcome-file-list>
-		<welcome-file>/home/api/wangdh.do</welcome-file>
+		<welcome-file>/home/hello.do</welcome-file>
 	</welcome-file-list>
 </web-app>

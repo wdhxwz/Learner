@@ -1,15 +1,11 @@
 package com.wangdh.learner.mybatis.Utils;
 
 import java.io.InputStream;
-import java.util.Properties;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 public class MybatisUtils {
 	private static SqlSessionFactory sqlSessionFactory;
