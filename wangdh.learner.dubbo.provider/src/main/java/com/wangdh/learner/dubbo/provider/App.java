@@ -8,7 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-    	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:dubbo.xml");
+    	@SuppressWarnings("resource")
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:dubbo.xml");
 		context.start();
 		System.out.println("dubbo ...");
 		try {

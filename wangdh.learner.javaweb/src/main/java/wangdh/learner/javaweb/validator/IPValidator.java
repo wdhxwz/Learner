@@ -11,4 +11,10 @@ public class IPValidator implements IValidator{
 		return false;
 	}
 
+	@Override
+	public int getOrder() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

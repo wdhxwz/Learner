@@ -25,7 +25,7 @@ public class DefaultServiceRouter implements IServiceRouter {
 		IResponseAdapter responseAdapter = null;
 		ServiceResult serviceResult = null;
 		try {
-			// String requestPath = request.getServletPath();
+			// String requestPath = request.getServletPath();/ttg/api/{}
 			// IRequestFrom requestFrom = new DefaultRequestFrom();
 
 			// OASConfig类加载OAS.properties的配置
