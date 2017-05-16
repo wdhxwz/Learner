@@ -4,7 +4,8 @@ public class App_02 {
 
 	public static void main(String[] args) {
 
-		System.out.println(Config.age);
+		LogHandler logHandler = new LogHandler();
+		UserManager userManager = (UserManager) logHandler.newProxyInstance(new UserManagerImp());
+		userManager.getUser("wangdh");
 	}
-
 }

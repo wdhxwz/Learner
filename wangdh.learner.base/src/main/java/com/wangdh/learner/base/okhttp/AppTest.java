@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import com.wangdh.learner.base.json.JsonUtils;
 
+import okhttp3.ConnectionPool;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -109,6 +110,7 @@ public class AppTest {
 		ResponseData responseData = new ResponseData();
 
 		OkHttpClient client = new OkHttpClient.Builder().connectTimeout(connectTimeout, TimeUnit.SECONDS)
+				.connectionPool(new ConnectionPool(200, 60, TimeUnit.SECONDS))
 				.readTimeout(readTimeout, TimeUnit.SECONDS).build();
 
 		MediaType mediaType = MediaType.parse(contentType.getValue() + ";" + charset.getValue());

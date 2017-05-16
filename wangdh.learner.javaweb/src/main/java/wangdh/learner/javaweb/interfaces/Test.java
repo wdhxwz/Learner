@@ -2,12 +2,14 @@ package wangdh.learner.javaweb.interfaces;
 
 import java.util.Comparator;
 
-public class Test implements Comparator<IValidator> {
+import wangdh.learner.javaweb.base.ValidRule;
+
+public class Test implements Comparator<ValidRule> {
 
 	@Override
-	public int compare(IValidator o1, IValidator o2) {
+	public int compare(ValidRule o1, ValidRule o2) {
 
-		return o1.getOrder() - o2.getOrder();
+		return o1.getValidOrder() - o2.getValidOrder();
 	}
 
 }
