@@ -6,7 +6,7 @@ import com.wangdh.learner.dubbo.api.ISampleService;
 
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws InterruptedException
     {
     	@SuppressWarnings("resource")
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:dubbo.xml");
@@ -16,10 +16,13 @@ public class App
 			String hello = "";
 			try {
 				hello = demoService.sayHello("wangdh");
+				demoService.test();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			System.out.println(Thread.currentThread().getName() + " " + hello);
+			
+			Thread.sleep(1000);
 		}
     }
 }

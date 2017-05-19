@@ -20,6 +20,7 @@
 		<module>wangdh.learner.dubbo.provider</module>
 		<module>wangdh.learner.dubbo.consumer</module>
     <module>wangdh.learner.javaweb</module>
+    <module>zookeeperDemo</module>
   </modules>
 	<properties>
 		<!-- rabbit mq 客户端版本号 -->

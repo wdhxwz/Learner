@@ -9,7 +9,7 @@ public class App
     public static void main( String[] args )
     {
     	@SuppressWarnings("resource")
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:dubbo.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:root.xml");
 		context.start();
 		System.out.println("dubbo ...");
 		try {
