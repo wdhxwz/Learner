@@ -8,7 +8,7 @@
 	<dubbo:application name="consumer-of-dubbo-sample" />
 
 	<!-- 使用zookeeper注册中心暴露发现服务地址 -->
-	<dubbo:registry address="zookeeper://127.0.0.1:2181"  file="../dubboregistry/dubbo-registry.properties"/>
+	<dubbo:registry address="zookeeper://192.168.1.105:2181"  file="../dubboregistry/dubbo-registry.properties"/>
 
 	<!-- 开启启动时检测，当没有可用服务时，会报异常，程序中断，为false时，程序不中断，但是调用服务时报异常 -->
 	<dubbo:consumer check="true" />
