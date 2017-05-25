@@ -15,7 +15,7 @@ public class Log4j2Test {
 
 	public static void main(String[] args) {
 		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < 2000000; i++) {
+		for (int i = 0; i < 200; i++) {
 			sb.append("a");
 		}
 		

@@ -26,6 +26,7 @@
 			<artifactId>zkclient</artifactId>
 			<version>0.9</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.wangdh.learner</groupId>
 			<artifactId>wangdh.learner.base</artifactId>
