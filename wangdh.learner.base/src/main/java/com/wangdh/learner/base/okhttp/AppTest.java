@@ -96,9 +96,14 @@ public class AppTest {
 		Map<String, String> postData = new HashMap<String, String>();
 		postData.put("userNo", "liumianqian001");
 		postData.put("customerGroupNo", "L000");
+		
+		ApiRequest2001 request2001 = new ApiRequest2001();
+		RequestHead requestHead = new RequestHead();
+		request2001.setRequestHead(requestHead);
 
-		String url = "http://accountcmb.frontpay.cn/serviceapi/getCompanyInfo.do";
-		ResponseData responseData = post(url, postData, ContentTypeEnum.JSON, CharsetEnum.UTF8, 60, 60);
+		// String url = "http://accountcmb.frontpay.cn/serviceapi/getCompanyInfo.do";
+		String url = "http://127.0.0.1:8080/api";
+		ResponseData responseData = post(url, JsonUtils.toJson(request2001), ContentTypeEnum.JSON, CharsetEnum.UTF8, 60, 60);
 		System.out.println(responseData.getCode());
 		System.out.println(responseData.getData());
 
@@ -107,6 +112,11 @@ public class AppTest {
 
 	public static ResponseData post(String url, Map<String, String> postData, ContentTypeEnum contentType,
 			CharsetEnum charset, int connectTimeout, int readTimeout) {
+		return post(url, JsonUtils.toJson(postData), contentType, charset, connectTimeout, readTimeout);
+	}
+	
+	public static ResponseData post(String url, String postBody, ContentTypeEnum contentType,
+			CharsetEnum charset, int connectTimeout, int readTimeout) {
 		ResponseData responseData = new ResponseData();
 
 		OkHttpClient client = new OkHttpClient.Builder().connectTimeout(connectTimeout, TimeUnit.SECONDS)
@@ -114,8 +124,6 @@ public class AppTest {
 				.readTimeout(readTimeout, TimeUnit.SECONDS).build();
 
 		MediaType mediaType = MediaType.parse(contentType.getValue() + ";" + charset.getValue());
-
-		String postBody = JsonUtils.toJson(postData);
 		Request request = new Request.Builder().url(url).addHeader("Content-Type", contentType.getValue())
 				.post(RequestBody.create(mediaType, postBody)).build();
 		try {
