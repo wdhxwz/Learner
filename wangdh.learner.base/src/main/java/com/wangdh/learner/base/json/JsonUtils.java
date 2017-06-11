@@ -11,6 +11,9 @@ public class JsonUtils {
 	
 	public static String toJson(Object object) {
 		if(object == null)return "{}";
+		
+		// if(object.toString().trim()=="") return "";
+		
 		return jsonMapper.toJson(object);
 	}
 	/**
