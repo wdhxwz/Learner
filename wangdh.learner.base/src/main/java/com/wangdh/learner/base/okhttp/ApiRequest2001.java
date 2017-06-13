@@ -12,6 +12,8 @@ public class ApiRequest2001 extends ApiRequest{
 	 * 渠道编号
 	 */
 	private String channelNo;
+	private String name;
+	
 
 	public String getChannelNo() {
 		return channelNo;
@@ -19,5 +21,13 @@ public class ApiRequest2001 extends ApiRequest{
 
 	public void setChannelNo(String channelNo) {
 		this.channelNo = channelNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}		
 }
