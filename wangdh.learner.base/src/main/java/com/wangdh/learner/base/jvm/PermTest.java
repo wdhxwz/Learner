@@ -1,10 +1,7 @@
 package com.wangdh.learner.base.jvm;
 
-import java.lang.reflect.InvocationTargetException;
-
-import com.wangdh.learner.base.cglib.Base;
-import com.wangdh.learner.base.cglib.CglibProxy;
-import com.wangdh.learner.base.cglib.Factory;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * 方法区测试
@@ -19,34 +16,25 @@ public class PermTest {
 	public static void main(String[] args) {
 		int i = 0;
 		try {
-			CglibProxy proxy = new CglibProxy();
+//			CglibProxy proxy = new CglibProxy();
+//
+//			for (int j = 0; j < 1; j++) {
+//
+//				// base为生成的增强过的目标类
+//				 Base base = Factory.getInstance(proxy);
+//				 base.add();
+//			}
+//			Base base = new Base();
+//			base.getClass().getMethod("add").invoke(base);
+			throw new Exception("我是个异常");
 
-			for (int j = 0; j < 1; j++) {
-
-				// base为生成的增强过的目标类
-				 Base base = Factory.getInstance(proxy);
-				 base.add();
-			}
-			Base base = new Base();
-			base.getClass().getMethod("add").invoke(base);
-
-		} catch (InvocationTargetException  e) {
+		} catch (Exception  e) {
 			System.out.println("total create count = " + i);
-//			StringWriter writer = new StringWriter();
-//			e.getCause().printStackTrace(new PrintWriter(writer, true));
-//			System.out.println("详细的异常信息:" + writer.toString());
-			System.out.println(e.getTargetException().getMessage());
+			StringWriter writer = new StringWriter();
+			e.getCause().printStackTrace(new PrintWriter(writer, true));
+			System.out.println("详细的异常信息:" + writer.toString());
+		
 			
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		} 
 	}
 }
