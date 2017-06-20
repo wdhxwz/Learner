@@ -7,6 +7,9 @@ package com.wangdh.learner.base.jvm.classloader;
  */
 public class UseFinalField {
 	public static void main(String[] args) {
+		boolean aaa = true;
+		System.out.println(aaa);
+		
 		System.out.println(FinalFieldClass.name);
 	}
 }
