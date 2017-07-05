@@ -43,12 +43,20 @@ public class StopThreadUnSafe {
 		public void run() {
 			while (true) {
 				synchronized (user) {
+					if(Thread.currentThread().isInterrupted()){
+						System.out.println("currentThread isInterrupted");
+						break;
+					}
+					
 					int v = (int) System.currentTimeMillis() / 1000;
 					user.setId(v);
 					try {
 						Thread.sleep(100);
 					} catch (Exception e) {
 						e.printStackTrace();
+						
+						// 捕获到异常后，会清除中断标识
+						Thread.currentThread().interrupt();
 					}
 
 					user.setName(String.valueOf(v));
@@ -72,14 +80,16 @@ public class StopThreadUnSafe {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws InterruptedException {
 		new Thread(new ReadObjectThread()).start();
-		while (true) {
+		// while (true) {
 			Thread thread = new Thread(new ChangeObjectThread());
 			thread.start();
-			Thread.sleep(150);
-			thread.stop();
-		}
+			Thread.sleep(1500);
+			// thread.stop();
+			
+			// 线程中断，给线程增加一个中断的标识位
+			thread.interrupt();
+		//}
 	}
 }
