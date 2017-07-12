@@ -1,7 +1,7 @@
 package com.wangdh.learner.base.thread;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 线程池测试
@@ -27,22 +27,23 @@ public class ThreadPoolTest {
 
 		@Override
 		public void run() {
-			System.out.println(System.currentTimeMillis()+":Thread Id:"+Thread.currentThread().getId());
 			try {
 				Thread.sleep(1000);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			System.out.println(System.currentTimeMillis()+":Thread Id:"+Thread.currentThread().getId());
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		MyTask task = new MyTask();
-		ExecutorService executorService = null;
-				// Executors.newFixedThreadPool(5);
+		ThreadPoolExecutor executorService = null;
+		executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(5);
+		
 		// executorService = Executors.newCachedThreadPool();
-		executorService = Executors.newSingleThreadExecutor();
-		for(int i = 0;i<10;i++){
+		// executorService = Executors.newSingleThreadExecutor();
+		for(int i = 0;i<9;i++){
 			executorService.submit(task);
 		}
 	}
