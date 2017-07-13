@@ -21,7 +21,7 @@ public class JedisPoolTest {
 			JedisPool jedisPool = new JedisPool("127.0.0.1");
 			
 			Jedis jedis = jedisPool.getResource();
-			jedis.auth("admin");
+			//jedis.auth("admin");
 			jedis.set("age", "21");
 			System.out.println(jedis.get("age"));
 			jedis.close();

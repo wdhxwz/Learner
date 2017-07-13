@@ -13,12 +13,12 @@ public class App
     {
     	int dbIndex=2;
     	Jedis jedis = new Jedis("127.0.0.1");
-    	jedis.auth("admin");
+    	//jedis.auth("admin");
 
     	// 选择db
     	jedis.select(dbIndex);
     	
-    	jedis.auth("admin");
+    	//jedis.auth("admin");
     	String key = "name";
     	
     	// 设置key-value
