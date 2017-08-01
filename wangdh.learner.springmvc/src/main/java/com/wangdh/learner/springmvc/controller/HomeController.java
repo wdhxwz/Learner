@@ -8,7 +8,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wangdh.learner.springmvc.model.User;
-import com.wangdh.learner.springmvc.service.StudentService;
 
 @Controller
 @RequestMapping("/home")
@@ -28,9 +26,9 @@ public class HomeController {
 	// @Autowired
 	// private TestService testService2;
 
-	@SuppressWarnings("unused")
-	@Autowired
-	private StudentService studentService;
+	//@SuppressWarnings("unused")
+	//@Autowired
+	//private StudentService studentService;
 
 	@RequestMapping("/api/{name}")
 	public String index(HttpServletRequest request, @PathVariable("name") String name, @ModelAttribute User user) {
@@ -44,9 +42,12 @@ public class HomeController {
 //		for (StudentEntity studentEntity : students) {
 //			System.out.println("name=" + studentEntity.getName());
 //		}
+		 // request.getSession().setAttribute("王东鸿", "3333");
+		 
+		 System.out.println(request.getSession().getAttribute("王东鸿"));
 		
 		System.out.println(request.getServletPath()+",,,");
-		System.out.println(request.getRequestURI()+"???F");
+		System.out.println(request.getRequestURI()+"???");
 		return "home/index";
 	}
 

@@ -13,6 +13,7 @@
 
 	<!-- 添加对Annotation的支持 -->
 	<context:annotation-config />
+	
 	<context:component-scan base-package="com.wangdh.learner.springmvc.service" />
 	<tx:annotation-driven proxy-target-class="true"
 		transaction-manager="txManager" />
@@ -23,7 +24,8 @@
 		<property name="mergeSql" value="true" />
 	</bean>
 	<bean id="springUtil" class="com.wangdh.learner.springmvc.base.SpringUtil" />
-	<bean id="testService" class="com.wangdh.learner.springmvc.service.TestService" scope="request"></bean>
+	<bean id="testService" class="com.wangdh.learner.springmvc.service.TestService"
+		scope="request"></bean>
 
 	<!-- 配置连接池 -->
 	<bean name="wangdh" id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
@@ -34,7 +36,7 @@
 		<property name="password" value="${password}" />
 		<property name="testWhileIdle" value="true" />
 		<property name="validationQuery" value="select 1" />
-		<property name="name" value="wangdh"/>
+		<property name="name" value="wangdh" />
 		<property name="filters" value="log4j,config" />
 		<property name="connectionProperties" value="config.decrypt=true" />
 		<property name="proxyFilters">
@@ -81,7 +83,8 @@
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.wangdh.learner.springmvc.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="markerInterface" value="com.wangdh.learner.springmvc.base.MSSQLMapper"/>
+		<property name="markerInterface"
+			value="com.wangdh.learner.springmvc.base.MSSQLMapper" />
 	</bean>
 
 	<!-- 添加声明式事务支持 -->
@@ -89,4 +92,8 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+
+
+
+
 </beans>

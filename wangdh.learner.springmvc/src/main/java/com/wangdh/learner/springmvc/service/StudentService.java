@@ -5,16 +5,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.wangdh.learner.springmvc.base.SpringUtil;
 import com.wangdh.learner.springmvc.entity.StudentEntity;
-import com.wangdh.learner.springmvc.mapper.StudentMapper;
 
-@Service
+//@Service
 public class StudentService {
-	@Autowired
-	private StudentMapper studentMapper;
+	//@Autowired
+	//private StudentMapper studentMapper;
 
 	// @Autowired
 	// private TestService testService;
@@ -30,6 +28,7 @@ public class StudentService {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 		}
-		return studentMapper.selectAll();
+		//return studentMapper.selectAll();
+		return null;
 	}
 }
