@@ -23,5 +23,13 @@ public class App {
 		System.out.println("Hello World!" + System.currentTimeMillis());
 		Thread.sleep(1);
 		System.err.println("777:" + System.currentTimeMillis());
+		
+		int a=2560;
+		int b=2560;
+		Integer c=2560;
+		Integer d=2560;
+		System.out.println(a==b);
+		System.out.println(a==c);
+		System.out.println(c==d);
 	}
 }
