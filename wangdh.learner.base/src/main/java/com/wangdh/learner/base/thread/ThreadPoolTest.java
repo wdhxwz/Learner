@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * newFixedThreadPool():返回一个固定线程数量的线程池，当新的任务提交时，线程池如果有空闲线程，则立即执行，
  * 否则，新任务会暂存在一个任务队列中。
  * <br/>
- * newScheduledThreadPool():
+ * newScheduledThreadPool():创建执行定时任务的线程池
  * <br/>
  * newSingleThreadExecutor():创建一个只有单个线程的线程池
  * <br/>
