@@ -2,10 +2,30 @@ package com.wangdh.learner.base.lambda;
 
 import java.util.List;
 
+/**
+ * 音乐家
+ * @author PC
+ *
+ */
 public class Artist {
+	/**
+	 * 艺术家的名字
+	 */
 	private String name;
-	private String menbers;
+	
+	/**
+	 * 乐队成员
+	 */
+	private String members;
+	
+	/**
+	 * 乐队来自哪里
+	 */
 	private String origin;
+	
+	/**
+	 * 专辑
+	 */
 	private Album album;
 	
 	public String getName() {
@@ -16,12 +36,12 @@ public class Artist {
 		this.name = name;
 	}
 
-	public String getMenbers() {
-		return menbers;
+	public String getMembers() {
+		return members;
 	}
 
-	public void setMenbers(String menbers) {
-		this.menbers = menbers;
+	public void setMembers(String members) {
+		this.members = members;
 	}
 
 	public String getOrigin() {
@@ -40,7 +60,15 @@ public class Artist {
 		this.album = album;
 	}
 
+	/**
+	 * 曲目
+	 * @author PC
+	 *
+	 */
 	public static class Track{
+		/**
+		 * 歌曲名称
+		 */
 		private String name;
 
 		public String getName() {
@@ -52,9 +80,25 @@ public class Artist {
 		}
 	}
 	
+	/**
+	 * 专辑
+	 * @author PC
+	 *
+	 */
 	public static class Album{
+		/**
+		 * 专辑名称
+		 */
 		private String name;
+		
+		/**
+		 * 歌曲列表
+		 */
 		private List<Track> tracks;
+		
+		/**
+		 * 参与创作的艺术家列表
+		 */
 		private String musicians;
 		public String getName() {
 			return name;
@@ -76,5 +120,3 @@ public class Artist {
 		}
 	}
 }
-
-
