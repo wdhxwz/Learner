@@ -1,0 +1,67 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/rabbit
+    http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd" >
+
+    <description>rabbitmq 连接服务配置</description>
+    <!-- 引入配置文件 -->
+    <context:property-placeholder
+            ignore-unresolvable="true" location="classpath:rabbitmq-config.properties" />
+
+    <!-- 包扫描 -->
+    <context:component-scan base-package="wangdh.learner.rabbitmq.spring"/>
+
+    <!-- 连接配置 -->
+    <rabbit:connection-factory
+            id="connectionFactory"
+            host="${mq.host}"
+            username="${mq.username}"
+            password="${mq.password}"
+            port="${mq.port}"
+            virtual-host="${mq.vhost}"/>
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <!-- spring template声明-->
+    <!-- testExchange是交换器名称 -->
+    <rabbit:template
+            exchange="testExchange"
+            id="amqpTemplate"
+            connection-factory="connectionFactory"
+            message-converter="jsonMessageConverter" />
+
+    <!-- 队列配置，队列名称：test_queue -->
+    <rabbit:queue
+            id="test_queue"
+            name="test_queue"
+            durable="true"
+            auto-delete="false"
+            exclusive="false" />
+
+    <!-- direct交换器与队列绑定 -->
+    <rabbit:direct-exchange
+            name="testExchange"
+            durable="true"
+            auto-delete="false"
+            id="test-exchange">
+        <rabbit:bindings>
+            <rabbit:binding queue="test_queue" key="test_queue_key"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!-- 消费监听器 -->
+    <rabbit:listener-container
+            connection-factory="connectionFactory"
+            acknowledge="auto">
+        <rabbit:listener queues="test_queue" ref="queueListenter"/>
+    </rabbit:listener-container>
+
+    <!-- 消息对象json转换类 -->
+    <bean id="jsonMessageConverter"
+          class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" />
+</beans>
