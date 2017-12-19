@@ -19,8 +19,9 @@
 		<module>wangdh.learner.dubbo.api</module>
 		<module>wangdh.learner.dubbo.provider</module>
 		<module>wangdh.learner.dubbo.consumer</module>
-    <module>wangdh.learner.javaweb</module>
-    <module>zookeeperDemo</module>
+        <module>wangdh.learner.javaweb</module>
+        <module>zookeeperDemo</module>
+        <module>wangdh.learner.maven</module>
   </modules>
 	<properties>
 		<!-- rabbit mq 客户端版本号 -->
