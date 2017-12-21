@@ -7,7 +7,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.wangdh.learner.dubbo.api.ISampleService;
 
-@Service
+@Service(version = "0.1.0")
 public class SampleService implements ISampleService {
 
 	@Override
