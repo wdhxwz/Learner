@@ -15,7 +15,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
  * @date 2017-12-21
  */
 public class App {
-    public static  void main(String[] args){
+    public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-redis-simpleConfig.xml");
 
         // 直接通过连接进行操作
@@ -25,15 +25,21 @@ public class App {
         System.out.println(new String(value));
 
         String ageKey = "age";
-        redisConnection.set(ageKey.getBytes(),"26岁".getBytes());
+        redisConnection.set(ageKey.getBytes(), "26岁".getBytes());
         value = redisConnection.get(ageKey.getBytes());
         System.out.println(new String(value));
 
         RedisTemplate redisTemplate = context.getBean(RedisTemplate.class);
-        ValueOperations<String,String> valueOperations = redisTemplate.opsForValue();
-        valueOperations.set("haha","你好");
+        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
+        valueOperations.set("haha", "你好");
 
-        
+        // 消息发布
+        String channel = "world";
+        String message = "hello";
+
+        redisConnection.publish(channel.getBytes(), message.getBytes());
+        redisTemplate.convertAndSend("world",message);
+
         System.out.println(redisTemplate.getKeySerializer().getClass().getName());
         System.out.println(redisTemplate.getValueSerializer().getClass().getName());
         System.out.println(redisTemplate.getDefaultSerializer().getClass().getName());

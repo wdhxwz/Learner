@@ -21,9 +21,9 @@
 
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory" />
-       <!-- <property name="keySerializer" ref="keySerializer" />
+        <property name="keySerializer" ref="keySerializer" />
         <property name="valueSerializer" ref="valueSerializer" />
         <property name="hashKeySerializer" ref="keySerializer" />
-        <property name="hashValueSerializer" ref="valueSerializer" />-->
+        <property name="hashValueSerializer" ref="valueSerializer" />
     </bean>
 </beans>
