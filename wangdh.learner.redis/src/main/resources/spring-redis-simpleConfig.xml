@@ -7,23 +7,23 @@
     <!-- Jedis ConnectionFactory -->
     <bean id="jedisConnectionFactory"
           class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:host-name="192.168.1.65"
+          p:host-name="127.0.0.1"
           p:port="6379" />
 
     <!-- 缓存序列化方式 -->
     <!--对key的默认序列化器。默认值是StringSerializer -->
-    <bean id="keySerializer"
+    <bean id="stringRedisSerializer"
           class="org.springframework.data.redis.serializer.StringRedisSerializer" />
 
     <!--是对value的默认序列化器，默认值是取自DefaultSerializer的JdkSerializationRedisSerializer。 -->
-    <bean id="valueSerializer"
+    <bean id="genericJackson2JsonRedisSerializer"
           class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer" />
 
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory" />
-        <property name="keySerializer" ref="keySerializer" />
-        <property name="valueSerializer" ref="valueSerializer" />
-        <property name="hashKeySerializer" ref="keySerializer" />
-        <property name="hashValueSerializer" ref="valueSerializer" />
+        <property name="keySerializer" ref="stringRedisSerializer" />
+        <property name="valueSerializer" ref="stringRedisSerializer" />
+        <property name="hashKeySerializer" ref="stringRedisSerializer" />
+        <property name="hashValueSerializer" ref="genericJackson2JsonRedisSerializer" />
     </bean>
 </beans>
