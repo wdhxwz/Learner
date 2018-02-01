@@ -47,5 +47,10 @@ public class ListDemo {
 
         Collections.sort(list);
         Arrays.asList(123,321);
+
+        // Deque
+        // ArrayDeque
+        // LinkedList
+        Map map = null;
     }
 }
