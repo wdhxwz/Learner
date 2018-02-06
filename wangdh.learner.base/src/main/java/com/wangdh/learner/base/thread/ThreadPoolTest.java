@@ -1,7 +1,6 @@
 package com.wangdh.learner.base.thread;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 /**
  * 线程池测试
@@ -23,7 +22,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  *
  */
 public class ThreadPoolTest {
-	public static class MyTask implements Runnable{
+	public static class MyTask implements Runnable{//{
 
 		@Override
 		public void run() {
@@ -34,17 +33,30 @@ public class ThreadPoolTest {
 			}
 			System.out.println(System.currentTimeMillis()+":Thread Id:"+Thread.currentThread().getId());
 		}
-	}
+
+//        @Override
+//        public String call() throws Exception {
+//
+//            return "";
+//        }
+    }
 	
 	public static void main(String[] args) throws InterruptedException {
 		MyTask task = new MyTask();
 		ThreadPoolExecutor executorService = null;
-		executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(5);
-		
+		// executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(5);
+        executorService = new ThreadPoolExecutor(5,10,100, TimeUnit.MINUTES,new LinkedBlockingDeque<>(80),new ThreadPoolExecutor.DiscardPolicy());
 		// executorService = Executors.newCachedThreadPool();
 		// executorService = Executors.newSingleThreadExecutor();
-		for(int i = 0;i<9;i++){
+        new ScheduledThreadPoolExecutor(10);
+		for(int i = 0;i<90;i++){
 			executorService.submit(task);
 		}
+		Thread.currentThread().join(10000);
+        System.out.println(executorService.getActiveCount());
+        System.out.println(executorService.getTaskCount());
+        System.out.println(executorService.getCompletedTaskCount());
+        System.out.println(executorService.getLargestPoolSize());
+        System.out.println(executorService.getPoolSize());
 	}
 }
