@@ -15,7 +15,7 @@ public class Student implements Cloneable,Serializable{
     /**
      * 学生年龄
      */
-    private String age;
+    private Integer age;
 
     public String getName() {
         return name;
@@ -25,11 +25,11 @@ public class Student implements Cloneable,Serializable{
         this.name = name;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
