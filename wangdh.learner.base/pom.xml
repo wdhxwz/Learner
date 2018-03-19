@@ -49,6 +49,13 @@
 			<artifactId>ini4j</artifactId>
 			<version>0.5.4</version>
 		</dependency>
+
+		<!-- ssh2依赖 -->
+		<dependency>
+			<groupId>ch.ethz.ganymed</groupId>
+			<artifactId>ganymed-ssh2</artifactId>
+			<version>262</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
