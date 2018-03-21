@@ -85,6 +85,20 @@
             <artifactId>jcl-over-slf4j</artifactId>
             <version>1.7.21</version>
         </dependency>
+
+        <!-- Bean转换 -->
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+
+        <!-- 谷歌工具类库：集合 -->
+        <!--<dependency>-->
+            <!--<groupId>com.google.common</groupId>-->
+            <!--<artifactId>google-collect</artifactId>-->
+            <!--<version>0.5</version>-->
+        <!--</dependency>-->
 	</dependencies>
 	<build>
 		<resources>
