@@ -31,5 +31,12 @@ public class App {
 		System.out.println(a==b);
 		System.out.println(a==c);
 		System.out.println(c==d);
+
+		String[] array = new String[3];
+		array[0] = "0";
+		array[2] = "2";
+		System.out.println(array[0]);
+		System.out.println(array[1]);
+		System.out.println(array[2]);
 	}
 }
