@@ -1,6 +1,7 @@
 package com.wangdh.learner.base.collections;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author wangdh
@@ -24,6 +25,19 @@ public class ListDemo {
             System.out.println(iterator.next());
             iterator.remove();
         }
+
+        // 将ArrayList变成线程安全
+        Collections.synchronizedList(list);
+
+        // 链表
+        List<String> linkedList = new LinkedList<>();
+        linkedList.add("111");
+        linkedList.add("222");
+
+        // 线程安全列表
+        CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList();
+        copyOnWriteArrayList.add("123");
+        copyOnWriteArrayList.remove("123");
 
         // TreeSet按字母顺序
         Set<String> treeSet = new TreeSet<String>();
@@ -51,6 +65,10 @@ public class ListDemo {
         // Deque
         // ArrayDeque
         // LinkedList
-        Map map = null;
+        Map<String,String> hashMap = new HashMap<>();
+        hashMap.put(null,null);
+
+        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put(null,null);
     }
 }
