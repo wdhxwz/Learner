@@ -1,6 +1,7 @@
 package com.wangdh.learner.base.collections;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -70,5 +71,10 @@ public class ListDemo {
 
         LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
         linkedHashMap.put(null,null);
+
+
+        // value 不能为null
+        ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<>(16);
+        concurrentHashMap.put("key",null);
     }
 }
