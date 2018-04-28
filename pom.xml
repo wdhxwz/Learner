@@ -22,7 +22,7 @@
         <module>wangdh.learner.javaweb</module>
         <module>zookeeperDemo</module>
         <module>wangdh.learner.maven</module>
-  </modules>
+    </modules>
 	<properties>
 		<!-- rabbit mq 客户端版本号 -->
 		<amqp.client.version>4.0.0</amqp.client.version>
