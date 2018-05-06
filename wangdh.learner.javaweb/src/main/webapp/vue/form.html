@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Form 表单验证</title>
+
+    <script src="https://cdn.jsdelivr.net/vue.validator/2.1.6/vue-validator.min.js"></script>
+    <script src="https://unpkg.com/vee-validate@2.0.8/dist/vee-validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!--
+    Vue.js 基于 v-validate 指令进行前端的表单验证，用法如下：
+    v-validate[:field]="array literal | object literal | binding"
+    (1).可以通过 field 属性来指定字段名。（即目标的id）
+    (2).字面量（验证规则）
+    -->
+</head>
+<body>
+<div id="app">
+    <validator name="validation-array">
+        <form novalidate>
+            Email: <input type="text" v-validate="['required','email']" name="email"><br />
+            <div>
+                <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
+            </div>
+        </form>
+    </validator>
+</div>
+
+
+<script>
+    // good to go.
+    // Vue.use(VeeValidate);
+
+    var vm = new Vue({
+        el : "#form-test",
+        data : {
+
+        }
+    });
+</script>
+</body>
+</html>
