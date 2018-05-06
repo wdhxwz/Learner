@@ -14,6 +14,7 @@ public class TestServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+        response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("请求TestServlet");
 		String localAddr = request.getServletPath();
