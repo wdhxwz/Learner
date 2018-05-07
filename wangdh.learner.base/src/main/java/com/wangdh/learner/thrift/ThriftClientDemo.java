@@ -10,6 +10,8 @@ import org.apache.thrift.transport.TTransportException;
 
 /**
  * 同步客户端
+ * <br/> https://segmentfault.com/a/1190000010938841
+ * <br/> http://www.cnblogs.com/cyfonly/p/6059374.html
  */
 public class ThriftClientDemo {
     public static final String SERVER_IP = "127.0.0.1";
