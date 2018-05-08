@@ -11,7 +11,7 @@ import org.apache.thrift.transport.TServerSocket;
  * 线程池服务模型，使用标准的阻塞式IO，预先创建一组线程处理请求    TThreadPoolServer 服务模型
  */
 public class ThriftTThreadPoolServerDemo {
-    public static final int SERVER_PORT = 8090;
+    public static final int SERVER_PORT = 9081;
 
     public void startServer() {
         try {

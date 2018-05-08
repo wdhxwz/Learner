@@ -12,13 +12,12 @@ import org.apache.thrift.transport.TNonblockingServerSocket;
  * 半同步半异步的服务端模型，需要指定为： TFramedTransport 数据传输的方式  THsHaServer服务模型
  */
 public class ThriftTHsHaServerDemo {
-    public static final int SERVER_PORT = 8090;
+    public static final int SERVER_PORT = 9081;
     public void startServer() {
         try {
             System.out.println("HelloWorld THsHaServer start ....");
 
-            TProcessor tprocessor = new Hello.Processor<Hello.Iface>(
-                    new HelloWorldImpl());
+            TProcessor tprocessor = new Hello.Processor<Hello.Iface>(new HelloWorldImpl());
             TNonblockingServerSocket tnbSocketTransport = new TNonblockingServerSocket(SERVER_PORT);
             Args args = new Args(tnbSocketTransport);
             args.processor(tprocessor);

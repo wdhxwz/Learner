@@ -13,7 +13,7 @@ import org.apache.thrift.transport.TNonblockingServerSocket;
  */
 public class ThriftTNonblockingServerDemo {
 
-    public static final int SERVER_PORT = 8090;
+    public static final int SERVER_PORT = 9081;
     public void startServer() {
         try {
             System.out.println("HelloWorld TNonblockingServer start ....");

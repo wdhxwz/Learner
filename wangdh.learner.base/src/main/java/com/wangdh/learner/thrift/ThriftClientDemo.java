@@ -2,6 +2,7 @@ package com.wangdh.learner.thrift;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
+import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TSocket;
@@ -15,8 +16,8 @@ import org.apache.thrift.transport.TTransportException;
  */
 public class ThriftClientDemo {
     public static final String SERVER_IP = "127.0.0.1";
-    public static final int SERVER_PORT = 8090;
-    public static final int TIMEOUT = 3000;
+    public static final int SERVER_PORT = 9081;
+    public static final int TIMEOUT = 30000;
 
     /**
      *
@@ -25,11 +26,17 @@ public class ThriftClientDemo {
     public void startClient(String userName) {
         TTransport transport = null;
         try {
-            //transport = new TSocket(SERVER_IP, SERVER_PORT, TIMEOUT);
+            // transport = new TSocket(SERVER_IP, SERVER_PORT, TIMEOUT);
+
+            // 对应的是THsHaServer服务模型或TNonblockingServer 服务模型
             transport = new TFramedTransport(new TSocket(SERVER_IP, SERVER_PORT, TIMEOUT));
+
             // 协议要和服务端一致
-            TProtocol protocol = new TBinaryProtocol(transport);
-            //TProtocol protocol = new TCompactProtocol(transport);
+            // TProtocol protocol = new TBinaryProtocol(transport);
+
+            // 对应的是THsHaServer服务模型TNonblockingServer 服务模型
+            TProtocol protocol = new TCompactProtocol(transport);
+
             // TProtocol protocol = new TJSONProtocol(transport);
             Hello.Client client = new Hello.Client(protocol);
             transport.open();

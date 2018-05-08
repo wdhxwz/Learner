@@ -11,11 +11,11 @@ import org.apache.thrift.transport.TServerSocket;
  * 单线程服务模型，一般用于测试  TSimpleServer服务端
  */
 public class ThriftTSimpleServerDemo {
-    public static final int SERVER_PORT = 9898;
+    public static final int SERVER_PORT = 9081;
 
     public void startServer() {
         try {
-            System.out.println("HelloWorld THsHaServer start ....");
+            System.out.println("HelloWorld TSimpleServer start ....");
 
             TProcessor tprocessor = new Hello.Processor<Hello.Iface>(
                     new HelloWorldImpl());
