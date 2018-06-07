@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Vue App Home</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="http://pk.game.yy.com/s/game/adminjs/admin2.js"></script>
 </head>
-<body>
-<div id="app">
-    123
-</div>
+<body v-cloak>
+    <app product-id="reportCenter">
+    	 <headline value="报表中心"></headline>
+    </app>
 </body>
+<script>
+    new Vue({
+        el:"body"
+    });
+</script>
 </html>

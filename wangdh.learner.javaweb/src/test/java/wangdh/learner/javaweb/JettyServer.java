@@ -7,6 +7,6 @@ package wangdh.learner.javaweb;
  */
 public class JettyServer {
     public static void main(String[] args) throws Exception {
-        com.wangdh.common.test.jetty.JettyServer.start(9999);
+        com.wangdh.common.test.jetty.JettyServer.start();
     }
 }
