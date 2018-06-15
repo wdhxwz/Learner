@@ -24,11 +24,12 @@
 	<bean id="jedisConnectionFactory"
 		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
 		destroy-method="destroy">
-		<property name="hostName" value="127.0.0.1" />
+		<property name="hostName" value="47.98.105.37" />
 		<property name="port" value="6379" />
 		<property name="timeout" value="3000" />
 		<property name="usePool" value="true" />
 		<property name="poolConfig" ref="jedisPoolConfig" />
+		<property name="password" value="1234567890poiuytrewqasdfghjklmnbvcxz"/>
 	</bean>
 
 
