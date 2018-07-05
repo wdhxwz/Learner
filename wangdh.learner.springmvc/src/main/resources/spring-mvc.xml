@@ -53,6 +53,15 @@
 			<bean
 				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<property name="prettyPrint" value="true" />
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper">
+						<property name="dateFormat">
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg name="pattern" value="yyyy-MM-dd HH:mm:ss"/>
+							</bean>
+						</property>
+					</bean>
+				</property>
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>

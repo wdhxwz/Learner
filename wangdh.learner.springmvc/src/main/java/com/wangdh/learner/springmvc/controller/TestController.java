@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Auther: dw_wanghonghong
@@ -57,5 +60,14 @@ public class TestController {
         // cookie.setMaxAge(-1);
 
         return "200";
+    }
+
+    @RequestMapping("/systemTime")
+    @ResponseBody
+    public Object getSystemTime(){
+        Map<String,Object> map = new HashMap();
+        map.put("date",new Date());
+
+        return map;
     }
 }
