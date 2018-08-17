@@ -22,6 +22,7 @@
         <module>wangdh.learner.javaweb</module>
         <module>zookeeperDemo</module>
         <module>wangdh.learner.maven</module>
+        <module>com.krista.netty</module>
     </modules>
 	<properties>
 		<!-- rabbit mq 客户端版本号 -->
