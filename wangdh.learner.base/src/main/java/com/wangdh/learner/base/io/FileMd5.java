@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class FileMd5 {
     public static void main(String[] args) throws IOException {
-        String path = "C:\\Users\\Administrator\\Desktop\\bjt_right_165x320_0321.gif";
+        String path = "C:\\Users\\Administrator\\Desktop\\icon-vip1.png";
         System.out.println(DigestUtils.md5Hex(new FileInputStream(path)));
 
 //        String rootPath = "C:\\Users\\Administrator\\Desktop\\images\\";
