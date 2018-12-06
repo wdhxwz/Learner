@@ -38,5 +38,9 @@ public class App {
 		System.out.println(array[0]);
 		System.out.println(array[1]);
 		System.out.println(array[2]);
+
+		System.out.println(((Number)Math.ceil(2.6)).intValue());
+
+		System.out.println(285 / 2);
 	}
 }

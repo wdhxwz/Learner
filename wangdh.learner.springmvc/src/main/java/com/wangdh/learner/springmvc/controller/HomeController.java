@@ -3,6 +3,7 @@ package com.wangdh.learner.springmvc.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,6 +50,13 @@ public class HomeController {
 		
 		System.out.println(request.getServletPath()+",,,");
 		System.out.println(request.getRequestURI()+"???");
+		System.out.println("sessionId = " + request.getSession().getId());
+		Enumeration<String> keys = request.getSession().getAttributeNames();
+		while (keys.hasMoreElements()){
+			String key = keys.nextElement();
+			System.out.println("key = " + key + ",value = " + request.getSession().getAttribute(key));
+		}
+
 		return "home/index";
 	}
 

@@ -13,15 +13,15 @@ import java.io.IOException;
  */
 public class FileMd5 {
     public static void main(String[] args) throws IOException {
-        String path = "C:\\Users\\Administrator\\Desktop\\icon-vip1.png";
-        System.out.println(DigestUtils.md5Hex(new FileInputStream(path)));
+//        String path = "C:\\Users\\Administrator\\Desktop\\Vip4.png";
+//        System.out.println(DigestUtils.md5Hex(new FileInputStream(path)));
 
-//        String rootPath = "C:\\Users\\Administrator\\Desktop\\images\\";
-//        String[] files = new String[]{ "Vip1.png","Vip2.png","Vip3.png","Vip4.png",
-//                "Vip5.png","Vip6.png","Vip7.png","Vip8.png","Vip9.png"};
-//
-//        for (String file: files) {
-//            System.out.println(file + ",MD5=" + DigestUtils.md5Hex(new FileInputStream(rootPath + file)));
-//        }
+        String rootPath = "C:\\Users\\Administrator\\Desktop\\images_new\\";
+        String[] files = new String[]{ "Vip1.png","Vip2.png","Vip3.png","Vip4.png",
+                "Vip5.png","Vip6.png","Vip7.png","Vip8.png","Vip9.png"};
+
+        for (String file: files) {
+            System.out.println(file + ",MD5=" + DigestUtils.md5Hex(new FileInputStream(rootPath + file)));
+        }
     }
 }
